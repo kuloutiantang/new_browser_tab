@@ -75,6 +75,14 @@ export const useConfigStore = defineStore("config", () => {
 				lineHeight: "2",
 				gap: "28px",
 			},
+			folder: {
+				topDiff: 75,
+				leftDiff: 75,
+				widthDiff: 100,
+				heightDiff: 100,
+				borderRadius: "10px",
+				padding: "28px",
+			},
 		},
 		list: [
 			{
@@ -84,8 +92,26 @@ export const useConfigStore = defineStore("config", () => {
 				iconType: "text",
 				iconUrl: "",
 				iconText: "画板",
-				iconBackground: "#ffffff",
-				iconColor: "#000000",
+				styleText: {
+					width: "100px",
+					height: "100px",
+					borderRadius: "10px",
+					background: "#ffffff",
+					color: "#000000",
+				},
+				styleFolder: {
+					width: "100px",
+					height: "100px",
+					borderRadius: "10px",
+				},
+				innerStyleText: {
+					background: "#ffffff",
+					color: "#000000",
+					borderRadius: "3px",
+				},
+				innerStyleFolder: {
+					borderRadius: "3px",
+				},
 			},
 			{
 				title: "Flow Us",
@@ -94,8 +120,26 @@ export const useConfigStore = defineStore("config", () => {
 				iconType: "text",
 				iconUrl: "",
 				iconText: "息流",
-				iconBackground: "#ffffff",
-				iconColor: "#000000",
+				styleText: {
+					width: "100px",
+					height: "100px",
+					borderRadius: "10px",
+					background: "#ffffff",
+					color: "#000000",
+				},
+				styleFolder: {
+					width: "100px",
+					height: "100px",
+					borderRadius: "10px",
+				},
+				innerStyleText: {
+					background: "#ffffff",
+					color: "#000000",
+					borderRadius: "3px",
+				},
+				innerStyleFolder: {
+					borderRadius: "3px",
+				},
 			},
 			{
 				title: "办公",
@@ -104,8 +148,26 @@ export const useConfigStore = defineStore("config", () => {
 				iconType: "view",
 				iconUrl: "",
 				iconText: "",
-				iconBackground: "",
-				iconColor: "",
+				styleText: {
+					width: "100px",
+					height: "100px",
+					borderRadius: "10px",
+					background: "#ffffff",
+					color: "#000000",
+				},
+				styleFolder: {
+					width: "100px",
+					height: "100px",
+					borderRadius: "10px",
+				},
+				innerStyleText: {
+					background: "#ffffff",
+					color: "#000000",
+					borderRadius: "3px",
+				},
+				innerStyleFolder: {
+					borderRadius: "3px",
+				},
 				children: [
 					{
 						title: "腾讯会议",
@@ -114,8 +176,26 @@ export const useConfigStore = defineStore("config", () => {
 						iconType: "text",
 						iconUrl: "",
 						iconText: "会议",
-						iconBackground: "#ffffff",
-						iconColor: "#000000",
+						styleText: {
+							width: "100px",
+							height: "100px",
+							borderRadius: "10px",
+							background: "#ffffff",
+							color: "#000000",
+						},
+						styleFolder: {
+							width: "100px",
+							height: "100px",
+							borderRadius: "10px",
+						},
+						innerStyleText: {
+							background: "#ffffff",
+							color: "#000000",
+							borderRadius: "3px",
+						},
+						innerStyleFolder: {
+							borderRadius: "3px",
+						},
 					},
 					{
 						title: "代码",
@@ -124,8 +204,26 @@ export const useConfigStore = defineStore("config", () => {
 						iconType: "view",
 						iconUrl: "",
 						iconText: "",
-						iconBackground: "",
-						iconColor: "",
+						styleText: {
+							width: "100px",
+							height: "100px",
+							borderRadius: "10px",
+							background: "#ffffff",
+							color: "#000000",
+						},
+						styleFolder: {
+							width: "100px",
+							height: "100px",
+							borderRadius: "10px",
+						},
+						innerStyleText: {
+							background: "#ffffff",
+							color: "#000000",
+							borderRadius: "3px",
+						},
+						innerStyleFolder: {
+							borderRadius: "3px",
+						},
 						children: [
 							{
 								title: "GitHub",
@@ -134,8 +232,84 @@ export const useConfigStore = defineStore("config", () => {
 								iconType: "text",
 								iconUrl: "",
 								iconText: "GitHub",
-								iconBackground: "#ffffff",
-								iconColor: "#000000",
+								styleText: {
+									width: "100px",
+									height: "100px",
+									borderRadius: "10px",
+									background: "#ffffff",
+									color: "#000000",
+								},
+								styleFolder: {
+									width: "100px",
+									height: "100px",
+									borderRadius: "10px",
+								},
+								innerStyleText: {
+									background: "#ffffff",
+									color: "#000000",
+									borderRadius: "3px",
+								},
+								innerStyleFolder: {
+									borderRadius: "3px",
+								},
+							},
+							{
+								title: "前端",
+								keyword: "前端",
+								url: "",
+								iconType: "view",
+								iconUrl: "",
+								iconText: "",
+								styleText: {
+									width: "100px",
+									height: "100px",
+									borderRadius: "10px",
+									background: "#ffffff",
+									color: "#000000",
+								},
+								styleFolder: {
+									width: "100px",
+									height: "100px",
+									borderRadius: "10px",
+								},
+								innerStyleText: {
+									background: "#ffffff",
+									color: "#000000",
+									borderRadius: "3px",
+								},
+								innerStyleFolder: {
+									borderRadius: "3px",
+								},
+								children: [
+									{
+										title: "Vue",
+										keyword: "Vue",
+										url: "https://cn.vuejs.org/",
+										iconType: "text",
+										iconUrl: "",
+										iconText: "Vue",
+										styleText: {
+											width: "100px",
+											height: "100px",
+											borderRadius: "10px",
+											background: "#ffffff",
+											color: "#000000",
+										},
+										styleFolder: {
+											width: "100px",
+											height: "100px",
+											borderRadius: "10px",
+										},
+										innerStyleText: {
+											background: "#ffffff",
+											color: "#000000",
+											borderRadius: "3px",
+										},
+										innerStyleFolder: {
+											borderRadius: "3px",
+										},
+									},
+								],
 							},
 						],
 					},

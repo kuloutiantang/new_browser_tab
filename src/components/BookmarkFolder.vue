@@ -7,14 +7,19 @@ const props = defineProps({
 		type: Object,
 		required: true,
 	},
-	pos: {
+	starting: {
 		type: Object,
+	},
+	quadrant: {
+		type: Number,
 	},
 });
 const emit = defineEmits(["onClose"]);
 // Vue
 import { ref } from "vue";
-import { onClickOutside, useDraggable, useElementSize } from "@vueuse/core";
+import { onClickOutside, useKeyModifier } from "@vueuse/core";
+// 组件
+import BookmarkList from "@/components/BookmarkList.vue";
 // 配置
 import { useConfigStore } from "@/stores/config";
 const config = useConfigStore();
@@ -22,10 +27,7 @@ const config = useConfigStore();
 const target = ref(null);
 // 拖拽
 const disabled = ref(false);
-const { x, y, style } = useDraggable(target, {
-	initialValue: { x: props.pos.x + props.pos.width * 0.05, y: props.pos.y + props.pos.height * 0.05 },
-	disabled,
-});
+const isControl = useKeyModifier("Control");
 // 监听
 // 点击外部
 onClickOutside(target, () => {
@@ -39,31 +41,27 @@ const onOpenChild = () => {
 const onCloseChild = () => {
 	disabled.value = false;
 };
-// 组件
-import BookmarkList from "@/components/BookmarkList.vue";
 </script>
 <template>
 	<div
-		:style="
-			style +
-			'width: ' +
-			pos.width * 0.9 +
-			'px; height: ' +
-			pos.height * 0.9 +
-			'px; border-radius: ' +
-			config.config.body.list.borderRadius +
-			'; padding: ' +
-			config.config.body.list.gap +
-			';'
-		"
-		style="position: fixed"
+		:style="{
+			top: starting.y + 50 + (quadrant == 1 || quadrant == 4 ? 45 : -45) + 'px',
+			left: starting.x + 50 + (quadrant == 1 || quadrant == 2 ? 45 : -45) + 'px',
+			width: starting.w - 100 + 'px',
+			height: starting.h - 100 + 'px',
+			borderRadius: config.config.body.folder.borderRadius,
+			padding: config.config.body.folder.padding,
+		}"
 		ref="target"
-		class="base-shadow box-border bg-(stone-300 op-70) dark:(bg-(stone-700 op-70))"
+		class="fixed base-shadow box-border bg-(stone-300 op-62) dark:(bg-(#000 op-62))"
 	>
 		<BookmarkList
 			:data="data.children"
 			@on-open-child="onOpenChild"
 			@on-close-child="onCloseChild"
+			:candrag="!(disabled || isControl)"
+			:starting="starting"
+			:quadrant="quadrant == 4 ? 1 : quadrant + 1"
 		></BookmarkList>
 	</div>
 </template>

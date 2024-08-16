@@ -2,13 +2,15 @@
 
 <script setup>
 import { ref } from "vue";
-import { useMouse, useElementSize, onClickOutside } from "@vueuse/core";
+import { useMouse, useElementSize, onClickOutside, useElementBounding } from "@vueuse/core";
 const { x, y } = useMouse();
 // 路由
 import { useRoute } from "vue-router";
 const route = useRoute();
 // 组件
 import BookmarkList from "@/components/BookmarkList.vue";
+const listBox = ref(null);
+const { x: listBoxX, y: listBoxY, width: listBoxW, height: listBoxH } = useElementBounding(listBox);
 // 配置
 import { useConfigStore } from "@/stores/config";
 const config = useConfigStore();
@@ -186,7 +188,7 @@ const test = () => {
 		</div>
 		<!-- 内容 -->
 		<div
-			class="box-border w-100vw h-100vh flex-auto flex flex-col"
+			class="box-border w-100vw h-100vh flex-auto flex flex-col select-none"
 			:style="{
 				paddingTop: config.config.body.top,
 				paddingBottom: config.config.body.bottom,
@@ -194,7 +196,16 @@ const test = () => {
 				paddingRight: config.config.body.right,
 			}"
 		>
-			<BookmarkList :data="config.config.list"></BookmarkList>
+			<div
+				ref="listBox"
+				class="w-full h-full"
+			>
+				<BookmarkList
+					:data="config.config.list"
+					:starting="{ x: listBoxX, y: listBoxY, w: listBoxW, h: listBoxH }"
+					:quadrant="1"
+				></BookmarkList>
+			</div>
 		</div>
 	</div>
 </template>
