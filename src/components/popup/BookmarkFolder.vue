@@ -19,7 +19,7 @@ const emit = defineEmits(["onClose"]);
 import { ref } from "vue";
 import { onClickOutside, useKeyModifier } from "@vueuse/core";
 // 组件
-import BookmarkList from "@/components/BookmarkList.vue";
+import BookmarkList from "@/components/popup/BookmarkList.vue";
 // 配置
 import { useConfigStore } from "@/stores/config";
 const config = useConfigStore();

@@ -8,6 +8,78 @@ export const useConfigStore = defineStore("config", () => {
 	// 存储键名
 	const THE_KEY = "eden_config_storage_key_name";
 	// 配置信息
+	const style = ref({
+		searchbox: {
+			top: "",
+			bottom: "70%",
+			left: "",
+			right: "",
+			borderRadius: "35px",
+			padding: "10px",
+		},
+		search: {
+			width: "50vw",
+			height: "35px",
+			lineHeight: "35px",
+			fontSize: "20px",
+		},
+		timedate: {
+			top: "10vh",
+			bottom: "",
+			left: "",
+			right: "",
+			width: "",
+			height: "",
+			fontSize: "35px",
+		},
+		filebox: {
+			paddingTop: "38vh",
+			paddingBottom: "8vh",
+			paddingLeft: "10vw",
+			paddingRight: "10vw",
+		},
+	});
+	const data = ref([
+		{
+			title: "Excalidraw",
+			keyword: "excalidraw,画板",
+			url: "https://excalidraw.com/",
+			style: {
+				width: "200px",
+				height: "200px",
+				background: "#1E90FF",
+				backgroundImage: "url()",
+				borderRadius: "0px",
+				color: "rgba(255, 255, 255, 0.5)",
+			},
+		},
+		{
+			title: "ExcalidrawExcalidraw",
+			keyword: "excalidraw,画板",
+			url: "https://excalidraw.com/",
+			style: {
+				width: "200px",
+				height: "200px",
+				background: "#9400D3",
+				backgroundImage: "url()",
+				borderRadius: "0px",
+				color: "rgba(255, 255, 255, 0.5)",
+			},
+		},
+		{
+			title: "ExcalidrawExcalidrawExcalidraw",
+			keyword: "excalidraw,画板",
+			url: "https://excalidraw.com/",
+			style: {
+				width: "400px",
+				height: "200px",
+				background: "#228B22",
+				backgroundImage: "url()",
+				borderRadius: "0px",
+				color: "rgba(255, 255, 255, 0.5)",
+			},
+		},
+	]);
 	const config = ref({
 		search: {
 			style: {
@@ -61,11 +133,24 @@ export const useConfigStore = defineStore("config", () => {
 			},
 			openingMethod: "newTab", // 搜索打开方式: newTab:新标签页, currentTab:当前标签页
 		},
+		timedate: {
+			style: {
+				top: "10vh",
+				bottom: "",
+				left: "",
+				right: "",
+				width: "",
+				height: "",
+				fontSize: "35px",
+			},
+		},
 		body: {
-			top: "38vh",
-			bottom: "10vh",
-			left: "10vw",
-			right: "10vw",
+			style: {
+				paddingTop: "38vh",
+				paddingBottom: "8vh",
+				paddingLeft: "10vw",
+				paddingRight: "10vw",
+			},
 			list: {
 				width: "100px",
 				height: "100px",
@@ -316,6 +401,17 @@ export const useConfigStore = defineStore("config", () => {
 				],
 			},
 		],
+		data: [
+			{
+				title: "Excalidraw",
+				keyword: "excalidraw,画板",
+				url: "https://excalidraw.com/",
+				style: {
+					background: "#ffffff",
+					color: "#000000",
+				},
+			},
+		],
 		openingMethod: "newTab", // 书签打开方式: newTab:新标签页, currentTab:当前标签页
 	});
 
@@ -378,5 +474,5 @@ export const useConfigStore = defineStore("config", () => {
 		crumbs.ls.delete(THE_KEY);
 	}
 
-	return { config, setAll, set, localConfig, backups, reset };
+	return { style, data, config, setAll, set, localConfig, backups, reset };
 });

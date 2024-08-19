@@ -19,8 +19,8 @@ const emit = defineEmits(["onOpenChild", "onCloseChild"]);
 import { useConfigStore } from "@/stores/config";
 const config = useConfigStore();
 // 组件
-import BookmarkFolder from "@/components/BookmarkFolder.vue";
-import DraggableView from "@/components/draggable/DraggableView.vue";
+import BookmarkFolder from "@/components/popup/BookmarkFolder.vue";
+import DraggableView from "@/components/popup/DraggableView.vue";
 import { ref } from "vue";
 import { useElementBounding, useKeyModifier } from "@vueuse/core";
 const isControl = useKeyModifier("Control");
