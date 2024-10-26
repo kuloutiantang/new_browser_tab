@@ -1,1 +1,71 @@
+##############
+# 上传路径
+
+## 通用
+upload/
+
+##############
+# 日志文件
+
+## 通用日志
+logs
+*.log
+## 依赖包相关
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+##############
+# 构建相关
+
+## JavaScript
 node_modules
+dist
+dist-ssr
+*.local
+remark.md
+## Java
+.gradle
+/build/
+target/
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+nbproject/private/
+build/*
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+*.xml.versionsBackup
+*.swp
+!*/build/*.java
+!*/build/*.html
+!*/build/*.xml
+!.mvn/wrapper/maven-wrapper.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+##############
+# 编辑器
+
+## 通用
+.vscode/*
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.iws
+*.iml
+*.ipr
+rebel.xml
+!.vscode/extensions.json
+## 插件
+folder-alias.json
